@@ -14,6 +14,8 @@ Kingdown::Application.routes.draw do
   resources :produtos
   resources :sessions
 
+  root :to => "produtos#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
