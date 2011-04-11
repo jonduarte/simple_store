@@ -1,0 +1,17 @@
+<% if @produto.errors.any?  %>
+  <ul class="">
+    <% @produto.errors.full_messages.each do |msg_erro| %>
+      <li><%= msg_erro %></li>
+    <% end  %>
+  </ul>
+<% end  %>
+<% form_for @produto, :html => {:multipart => true} do |f| %>
+  Nome: <%= f.text_field :nome  %><br/>
+  Descrição: <br/>
+  <%= f.text_area :descricao, :size => "44x6" %><br/>
+  Preço: <%= f.text_field :valor %><br/>
+  <%= f.file_field :foto %>
+
+  <%= f.submit %>
+<% end %>
+

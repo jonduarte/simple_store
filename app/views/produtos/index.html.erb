@@ -1,0 +1,29 @@
+<h1>Visualizando todos os produtos</h1>
+
+<table class="">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @produtos.each do |produto|  %>
+    <tr>
+      <td><%= produto.nome %></td>
+      <td><%= valor_em_reais(produto.valor) %></td>
+      <td><%= link_to 'Mostrar', produto %></td>
+      <% if session[:logged] %>
+      <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
+      <td><%= link_to 'Excluir', produto, :method => :delete, :confirm => "Você deseja realmente excluir o produto?" %></td>
+      <% end  %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo', new_produto_path %>
+

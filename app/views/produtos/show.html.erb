@@ -1,0 +1,18 @@
+<h1>Mostrando detalhes do produto: <%= @produto.nome %></h1>
+<table class="">
+  <tr>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th>Foto</th>
+  </tr>
+  <tr>
+    <td><%= @produto.nome %></td>
+    <td><%= @produto.descricao %></td>
+    <td><%= valor_em_reais(@produto.valor) %></td>
+    <td><%= lightbox_image_tag(@produto.foto.url(:mini), @produto.foto.url(:original), {:class => "images"}, :title => @produto.nome) %></td>
+  </tr>
+</table>
+
+<%= link_to 'Voltar', produtos_path  %>
+
